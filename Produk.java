@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 // Abstract class Produk2
 abstract class Produk {
-    private String nama;
-    private double harga;
+    private String nama; //konstraktor nama dan harga  digunakan untuk menginisialisasi nilai (aksesmodifier)
+    private double harga; //encapsulation 
 
-    public Produk(String nama, double harga) {
-        this.nama = nama;
+    public Produk(String nama, double harga) { //Konstruktor ini menerima dua parameter, yaitu "nama" (bertipe String) dan "harga" (bertipe double).
+        this.nama = nama; //
         this.harga = harga;
     }
 
@@ -31,4 +31,5 @@ abstract class Produk {
 
     // Abstract method untuk menghitung total harga
     public abstract double hitungTotalHarga(int jumlah);
+    //metode abstrak bernama "hitungTotalHarga()" yang menerima satu parameter "jumlah" (bertipe int) dan mengembalikan nilai bertipe double.
 }

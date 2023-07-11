@@ -7,24 +7,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Produk> keranjangBelanja = new ArrayList<>();
-        // Laptop test = new Laptop(null, 0);
-       Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in); //Variabel "scanner" dideklarasikan sebagai objek dari kelas "Scanner" yang digunakan untuk membaca input dari pengguna.
 
-        boolean beliLagi = true;
+        boolean beliLagi = true; 
+        //Variabel "beliLagi" dideklarasikan sebagai variabel bertipe boolean yang akan digunakan untuk mengontrol apakah pengguna ingin membeli lagi atau tidak.
 
-        while (beliLagi) {
-            try {
-                System.out.println("--- Pilihan Produk ---");
-                System.out.println("----------------------");
+
+        while (beliLagi) { //program ini memiliki sebuah perulangan while yang digunakan untuk mengulang proses pembelian produk selama pengguna masih ingin membeli.
+            try { //Terdapat blok try-catch yang digunakan untuk menangani InputMismatchException
+                System.out.println("---------------------------------------------------");
+                System.out.println("----------------Pilihan Produk ---------------------");
+                System.out.println("---------------------------------------------------");
                 System.out.println("1. Handphone");
                 System.out.println("2. Laptop");
                 System.out.println("3. Kartu Sim");
-                System.out.println("--------------------------- Selamat Berbelanja ------");
+                System.out.println("-----------------------------------------------------");
+                System.out.println("------------------- Selamat Berbelanja --------------");
+                System.out.println("-----------------------------------------------------");
                 System.out.print("Input pilihan : ");
                 int pilihan = scanner.nextInt();
 
                 switch (pilihan) {
                     case 1:
+                        System.out.println("-------------------------------");
                         System.out.println("--- Pilihan Merek Handphone ---");
                         System.out.println("-------------------------------");
                         System.out.println("1. Samsung");
@@ -131,14 +136,7 @@ public class Main {
                         return;
                 }
 
-                // System.out.print("Pilih Produk : ");
-                // int pilihanProduk = scanner.nextInt();
-
-                // if (pilihanProduk < 1 || pilihanProduk > keranjangBelanja.size()) {
-                //     System.out.println("Pilihan produk tidak valid.");
-                //     return;
-                // }
-
+                
                 System.out.print("Berapa Unit : ");
                 int jumlahUnit = scanner.nextInt();
 
@@ -149,12 +147,10 @@ public class Main {
                 double testTotal =0;
                 for(int i=1;i<=keranjangBelanja.size();i++){
                     testTotal += keranjangBelanja.get(i-1).getHarga();
-                    // System.out.println(keranjangBelanja.get(i-1).getHarga());
-                    // System.out.println(testTotal);
+                    
                 }
-                // double totalBelanja = keranjangBelanja.get(pilihanProduk - 1).hitungTotalHarga(jumlahUnit);
-                // System.out.println("Total Belanja : 1 Rp. " + totalBelanja);
-                System.out.println("Total Belanja : 2 Rp. " + testTotal);
+                
+                System.out.println("Total Belanja :  Rp. " + testTotal);
 
 
 
@@ -164,7 +160,7 @@ public class Main {
                 if (beliLagiInput.equalsIgnoreCase("T")) {
                     beliLagi = false;
                 }
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException e) { //Terdapat blok try-catch yang digunakan untuk menangani InputMismatchException
                 System.out.println("Input yang dimasukkan tidak valid. Program berhenti.");
                 break;
             }
