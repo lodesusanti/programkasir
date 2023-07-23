@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 // Abstract class Produk2
 abstract class Produk {
-    private String nama; //konstraktor nama dan harga  digunakan untuk menginisialisasi nilai (aksesmodifier)
+    private String nama; //konstraktor nama dan harga  digunakan untuk menginisialisasi nilai 
     private double harga; //encapsulation 
 
     public Produk(String nama, double harga) { //Konstruktor ini menerima dua parameter, yaitu "nama" (bertipe String) dan "harga" (bertipe double).
-        this.nama = nama; //
+        this.nama = nama; //this  untuk mengambil variabel diluar konstraktor
         this.harga = harga;
+    
     }
 
     public String getNama() {

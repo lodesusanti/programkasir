@@ -6,6 +6,10 @@ class Handphone extends Produk {
         super(nama, harga);
     }
 
+     public Handphone() {
+            super( "asus", 2000000);
+        }
+   
     // Implementasi method hitungTotalHarga dari abstract class Produk
     @Override
     public double hitungTotalHarga(int jumlah) {

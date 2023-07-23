@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Produk> keranjangBelanja = new ArrayList<>();
+        ArrayList<Produk> keranjangBelanja = new ArrayList<>(); //class produk sebagai tipe data dan berisi nama arraylist yaitu keranjang belanja yang berguna untuk menyimpan produk yang akan di beli
        Scanner scanner = new Scanner(System.in); //Variabel "scanner" dideklarasikan sebagai objek dari kelas "Scanner" yang digunakan untuk membaca input dari pengguna.
 
         boolean beliLagi = true; 
@@ -24,10 +24,10 @@ public class Main {
                 System.out.println("-----------------------------------------------------");
                 System.out.println("------------------- Selamat Berbelanja --------------");
                 System.out.println("-----------------------------------------------------");
-                System.out.print("Input pilihan : ");
-                int pilihan = scanner.nextInt();
+                System.out.print("Input pilihan : "); 
+                int pilihan = scanner.nextInt(); // menggunakan Scanner, program dapat menerima input dari pengguna mengenai produk yang ingin ditambahkan ke keranjang belanja
 
-                switch (pilihan) {
+                switch (pilihan) { //memilih menu
                     case 1:
                         System.out.println("-------------------------------");
                         System.out.println("--- Pilihan Merek Handphone ---");
@@ -36,6 +36,7 @@ public class Main {
                         System.out.println("2. Xiaomi");
                         System.out.println("3. Oppo");
                         System.out.println("4. Realme");
+                        System.out.println("5. asus");
                         System.out.println("-------------------------------");
                         System.out.print("Pilihan Merek (Nomor) : ");
                         int merekHandphone = scanner.nextInt();
@@ -57,6 +58,10 @@ public class Main {
                                 Handphone realmeA73 = new Handphone("Realme A73", 500000);
                                 keranjangBelanja.add(realmeA73);
                                 break;
+                            case 5:
+                            Handphone asus = new Handphone();
+                            keranjangBelanja.add(asus);
+                            break;
                             default:
                                 System.out.println("Pilihan merek handphone tidak valid.");
                                 return;
@@ -140,29 +145,41 @@ public class Main {
                 System.out.print("Berapa Unit : ");
                 int jumlahUnit = scanner.nextInt();
 
-                if (jumlahUnit <= 0) {
+                if (jumlahUnit <= 0) { 
                     System.out.println("Jumlah unit tidak valid.");
-                    return;
+                    return; //program yang digunakan untuk memvalidasi jumlah unit dalam suatu transaksi. 
                 }
                 double testTotal =0;
                 for(int i=1;i<=keranjangBelanja.size();i++){
                     testTotal += keranjangBelanja.get(i-1).getHarga();
+                    //rogram yang digunakan untuk menghitung total harga belanjaan dalam keranjang belanja. 
                     
                 }
                 
                 System.out.println("Total Belanja :  Rp. " + testTotal);
-
+                // program yang digunakan untuk mencetak total harga belanjaan ke layar.
 
 
                 System.out.print("Apakah Akan Beli Lagi? [Y/T] ");
                 String beliLagiInput = scanner.next();
 
-                if (beliLagiInput.equalsIgnoreCase("T")) {
-                    beliLagi = false;
+                // Print Nota Pembelian
+                System.out.println("\n===== NOTA PEMBELIAN =====");
+                for (int i = 0; i < keranjangBelanja.size(); i++) {
+                    Produk produk = keranjangBelanja.get(i);
+                    System.out.println("Produk: " + produk.getNama() + ", Harga: Rp. " + produk.getHarga() +
+                            ", Jumlah Unit: " + jumlahUnit + ", Total Harga: Rp. " + (produk.getHarga() * jumlahUnit));
+                }
+                System.out.println("==========================");
+
+
+                if (beliLagiInput.equalsIgnoreCase("T")) { //equalsIgnoreCase, yang berarti tidak memperhatikan apakah input "T" atau "t", keduanya dianggap sama).
+                    beliLagi = false; //program yang mengatur logika untuk memeriksa apakah pengguna ingin melanjutkan pembelian atau tidak
                 }
             } catch (InputMismatchException e) { //Terdapat blok try-catch yang digunakan untuk menangani InputMismatchException
                 System.out.println("Input yang dimasukkan tidak valid. Program berhenti.");
                 break;
+                //InputMismatchException adalah sebuah jenis pengecualian (exception) yang terjadi saat program mencoba membaca input dari pengguna, tetapi nilainya tidak sesuai dengan yang diharapkan.
             }
         }
 
